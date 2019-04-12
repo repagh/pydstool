@@ -8,8 +8,9 @@ source:
 build:
   number: {{ GIT_DESCRIBE_NUMBER }}
   script:
-    - cd $RECIPE_DIR/..
-    - $PYTHON setup.py install --single-version-externally-managed --record=record.txt
+    - cd $RECIPE_DIR/.. #[not win]
+    - cd %RECIPE_DIR%\.. #[win]
+    - {{ PYTHON }} setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
