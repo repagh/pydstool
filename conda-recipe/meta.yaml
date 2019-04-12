@@ -1,0 +1,40 @@
+package:
+  name: pydstool
+  version: {{ GIT_DESCRIBE_TAG }}
+
+source:
+  git_url: ../
+
+build:
+  number: {{ GIT_DESCRIBE_NUMBER }}
+  script:
+    - cd $RECIPE_DIR/..
+    - $PYTHON setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - nose
+    - swig
+    - fortran-compiler
+
+  run:
+    - python
+    - six
+    - numpy
+    - scipy
+    - swig
+    - fortran-compiler
+
+test:
+  imports:
+    - PyDSTool
+
+about:
+  home: http://python-control.sourceforge.net
+  license:  BSD License
+  summary: 'Python control systems library'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
