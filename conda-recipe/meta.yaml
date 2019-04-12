@@ -15,16 +15,12 @@ requirements:
   build:
     - python
     - nose
-    - swig
-    - fortran-compiler
 
   run:
     - python
     - six
     - numpy
     - scipy
-    - swig
-    - fortran-compiler
 
 test:
   imports:
